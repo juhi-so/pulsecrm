@@ -93,7 +93,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <div
-      className={`min-h-screen overflow-hidden transition-all duration-500 ${theme.bg}`}
+      className={`min-h-screen overflow-hidden transition-all duration-500 ${theme.bg} pt-28`}
     >
       {/* Background Glow */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
@@ -105,13 +105,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       </div>
 
       {/* Navbar */}
-      <nav
-        className={`sticky top-0 z-50 backdrop-blur-xl border-b px-8 md:px-20 py-5 flex items-center justify-between ${
-          darkMode
-            ? "bg-black/30 border-white/10"
-            : "bg-white/70 border-black/5"
-        }`}
-      >
+    <nav
+  className={`fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b px-8 md:px-20 py-5 flex items-center justify-between ${
+    darkMode
+      ? "bg-black/40 border-white/10"
+      : "bg-white/70 border-black/5"
+  }`}
+>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500" />
           <h1 className="text-2xl font-bold tracking-tight">PulseCRM</h1>
@@ -146,9 +146,18 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             />
           </button>
 
-          <button className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:scale-105 transition-all duration-300 px-6 py-3 rounded-2xl font-semibold shadow-2xl shadow-violet-500/30">
-            Get Started
-          </button>
+         <button
+  onClick={() => {
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  }}
+  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all"
+>
+  Get Started
+</button>
         </div>
       </nav>
 
@@ -179,9 +188,18 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           </p>
 
           <div className="flex flex-wrap gap-5 mt-10">
-            <button className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl shadow-violet-500/30">
-              Start Free Trial
-            </button>
+           <button
+  onClick={() => {
+    document
+      .getElementById("contact")
+      ?.scrollIntoView({
+        behavior: "smooth",
+      });
+  }}
+  className="bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition-all"
+>
+  Start Free Trial
+</button>
 
             <button
               className={`px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:scale-105 ${theme.card}`}
@@ -724,12 +742,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             <p className={`mt-6 text-lg ${theme.secondary}`}>
               Capture leads, automate workflows, and close deals faster.
             </p>
-
-            <form onSubmit={handleSubmit} className="grid md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
+            <form
+  onSubmit={handleSubmit}
+  className="grid md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto"
+>
              <input
   type="text"
   placeholder="Full Name"
   value={name}
+  required
   onChange={(e) => setName(e.target.value)}
   className={`px-6 py-5 rounded-2xl outline-none backdrop-blur-xl ${theme.card}`}
 />
@@ -738,6 +759,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   type="email"
   placeholder="Work Email"
   value={email}
+  required
   onChange={(e) => setEmail(e.target.value)}
   className={`px-6 py-5 rounded-2xl outline-none backdrop-blur-xl ${theme.card}`}
 />
@@ -745,13 +767,18 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   type="text"
   placeholder="Company"
   value={company}
+  required
   onChange={(e) => setCompany(e.target.value)}
   className={`px-6 py-5 rounded-2xl outline-none backdrop-blur-xl ${theme.card}`}
 />
 
-              <button className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:scale-[1.03] transition-all duration-300 rounded-2xl font-semibold shadow-2xl shadow-violet-500/30">
-                Start Free Trial
-              </button>
+             <div className="md:col-span-3 flex justify-center">
+
+  <button className="bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:scale-[1.03] transition-all duration-300 rounded-2xl font-semibold shadow-2xl shadow-violet-500/30 py-5 px-14">
+    Start Free Trial
+  </button>
+
+</div>
             </form>
           </div>
         </div>
