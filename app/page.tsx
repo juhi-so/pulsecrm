@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export default function PulseCRMFrontend() {
@@ -10,7 +10,7 @@ export default function PulseCRMFrontend() {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
   const { error } = await supabase
