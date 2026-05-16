@@ -26,7 +26,7 @@ export default function AdminDashboard() {
     setLoading(false);
   };
 
-  const updateStatus = async (id, status) => {
+  const updateStatus = async (id: number, status: string) => {
   const { error } = await supabase
     .from("leads")
     .update({ status })
