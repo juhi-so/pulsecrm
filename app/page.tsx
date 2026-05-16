@@ -158,7 +158,20 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 >
   Get Started
 </button>
+<button
+    onClick={() => {
+      window.location.href = "/login";
+    }}
+    className={`px-8 py-4 rounded-2xl font-semibold border transition-all ${
+      darkMode
+        ? "border-white/10 bg-white/5 hover:bg-white/10"
+        : "border-black/10 bg-black/5 hover:bg-black/10"
+    }`}
+  >
+    Sign In as Admin
+  </button>
         </div>
+        
       </nav>
 
       {/* Hero */}
